@@ -5,7 +5,7 @@
 <h2>Who I am</h2>
 
 <p align="center">
-<img src="./matheus-ascii.svg" width="43.02%" alt="ASCII art portrait of Matheus Oliveira" />
+<img src="./matheus-portrait.svg" width="43.02%" alt="ASCII art portrait of Matheus Oliveira" />
 <img src="./info-card.svg" width="55.48%" alt="Matheus de Andrade Oliveira, Full-Stack Developer at Japeri City Hall (public sector), Nova Iguaçu, RJ, Brazil. Computer Science at Estácio. Web: TypeScript, React, Node.js. Mobile: React Native, Flutter, Kotlin. Data: PostgreSQL, MySQL, MongoDB. Cloud: AWS, Azure, Docker" />
 </p>
 
@@ -59,9 +59,9 @@
 
 <!--
 Como funciona a parte animada:
-- hero.svg, stats.svg, projects/*.svg, matheus-ascii.svg, info-card.svg e contrib-heatmap.svg têm a animação dentro do próprio SVG.
+- hero.svg, stats.svg, projects/*.svg, matheus-portrait.svg, info-card.svg e contrib-heatmap.svg têm a animação dentro do próprio SVG.
 - stats.svg conta repositórios privados com o secret PROFILE_TOKEN (token fine-grained só leitura); sem ele mantém data/profile.json.
 - scripts/make_hero_svg.py, scripts/make_info_card.py e scripts/make_projects_svg.py: edite os textos no topo de cada um.
-- scripts/make_ascii_svg.py: gera a arte ASCII (aceita foto, veja scripts/prep_photo.py).
+- scripts/prep_photo.py + scripts/make_ascii_svg.py: geram o retrato ASCII a partir da foto (matheus-portrait.svg).
 - .github/workflows/update-profile-art.yml: todo dia baixa as contribuições e regenera os SVGs.
 -->

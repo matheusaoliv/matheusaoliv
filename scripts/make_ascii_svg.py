@@ -1,7 +1,7 @@
-"""Gera matheus-ascii.svg: arte ASCII que se digita linha por linha.
+"""Gera a arte ASCII que se digita linha por linha.
 
-    python scripts/make_ascii_svg.py                      # monograma "M"
-    python scripts/make_ascii_svg.py source-prepped.png   # retrato a partir de foto
+    python scripts/make_ascii_svg.py                      # monograma "M" -> matheus-ascii.svg
+    python scripts/make_ascii_svg.py source-prepped.png   # retrato -> matheus-portrait.svg
 
 Para foto, rode antes scripts/prep_photo.py (remove fundo e aumenta contraste).
 Cada linha aparece um caractere por vez (clip animado com SMIL), com um
@@ -133,7 +133,9 @@ def main():
     )
     body = f'<g class="art" fill="url(#ink)">{"".join(rows)}</g>'
     label = "ASCII art portrait of Matheus Oliveira" if photo else "ASCII art monogram M"
-    write("matheus-ascii.svg", window(WIDTH, HEIGHT, "matheus@github: ~", label, body, css, defs))
+    # Nome diferente por modo: trocar de arte muda o endereço da imagem e fura o cache.
+    name = "matheus-portrait.svg" if photo else "matheus-ascii.svg"
+    write(name, window(WIDTH, HEIGHT, "matheus@github: ~", label, body, css, defs))
 
 
 if __name__ == "__main__":
