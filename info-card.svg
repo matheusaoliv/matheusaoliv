@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="534" height="444" viewBox="0 0 534 444" role="img" aria-labelledby="t">
+<title id="t">neofetch-style card: Name: Matheus de Andrade Oliveira; Role: Full-Stack Developer; Now: Japeri City Hall · public sector; Location: Nova Iguaçu, RJ – Brazil; Education: Computer Science · Estácio; Uptime: 4 years, 3 months on GitHub; Web: TypeScript · React · Node.js; Mobile: React Native · Flutter · Kotlin; Data: PostgreSQL · MySQL · MongoDB; Cloud: AWS · Azure · Docker; Projects: SERI Smart Parking · Bike Parking</title>
+<style>
+svg { font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+
+.orb-a { animation: float-a 9s ease-in-out infinite; }
+.orb-b { animation: float-b 11s ease-in-out infinite 1.1s; }
+.orb-c { animation: float-c 13s ease-in-out infinite .6s; }
+@keyframes float-a { 50% { transform: translate(26px, -16px); opacity: .85; } }
+@keyframes float-b { 50% { transform: translate(-22px, 16px); opacity: .7; } }
+@keyframes float-c { 50% { transform: translate(16px, -10px); opacity: .6; } }
+
+
+.ln { font-size: 13px; fill: #c9d1d9; white-space: pre; animation: slide .45s ease-out both; }
+@keyframes slide { from { opacity: 0; transform: translateX(-8px); } }
+.cur { animation: blink 1.1s step-end infinite; }
+@keyframes blink { 50% { fill-opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0d1117"/><stop offset=".54" stop-color="#161b22"/><stop offset="1" stop-color="#0d1117"/>
+</linearGradient>
+<radialGradient id="orb0"><stop offset="0" stop-color="#58a6ff" stop-opacity="0.6"/>
+<stop offset=".58" stop-color="#58a6ff" stop-opacity=".16"/><stop offset="1" stop-color="#58a6ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="orb1"><stop offset="0" stop-color="#39d353" stop-opacity="0.42"/>
+<stop offset=".58" stop-color="#39d353" stop-opacity=".16"/><stop offset="1" stop-color="#39d353" stop-opacity="0"/></radialGradient>
+<radialGradient id="orb2"><stop offset="0" stop-color="#a371f7" stop-opacity="0.6"/>
+<stop offset=".58" stop-color="#a371f7" stop-opacity=".16"/><stop offset="1" stop-color="#a371f7" stop-opacity="0"/></radialGradient>
+
+</defs>
+<clipPath id="card"><rect width="534" height="444" rx="20"/></clipPath>
+<g clip-path="url(#card)">
+<rect width="534" height="444" rx="20" fill="url(#bg)"/>
+<ellipse class="orb-a" cx="85" cy="71" rx="150" ry="222" fill="url(#orb0)" opacity=".7"/>
+<ellipse class="orb-b" cx="427" cy="89" rx="160" ry="200" fill="url(#orb1)" opacity=".6"/>
+<ellipse class="orb-c" cx="294" cy="426" rx="203" ry="160" fill="url(#orb2)" opacity=".5"/>
+<rect x=".5" y=".5" width="533" height="443" rx="20" fill="none" stroke="#58a6ff" stroke-opacity=".28"/>
+
+<g transform="translate(22 22)">
+<clipPath id="win"><rect width="490" height="400" rx="14"/></clipPath>
+<g clip-path="url(#win)">
+<rect width="490" height="400" fill="#080a0e" fill-opacity=".62"/>
+<rect width="490" height="32" fill="#ffffff" fill-opacity=".035"/>
+<line x1="0" y1="32.5" x2="490" y2="32.5" stroke="#58a6ff" stroke-opacity=".22"/>
+<circle cx="18" cy="16" r="6" fill="#ff5f57"/>
+<circle cx="38" cy="16" r="6" fill="#febc2e"/>
+<circle cx="58" cy="16" r="6" fill="#28c840"/>
+<text x="245" y="20.5" fill="#8b949e" font-size="12" text-anchor="middle">matheus@github: ~ — neofetch</text>
+<text class="ln" x="26" y="62" style="animation-delay:0.30s"><tspan fill="#39d353" font-weight="700">matheus</tspan>@<tspan fill="#39d353" font-weight="700">github</tspan></text>
+<text class="ln" x="26" y="82" style="animation-delay:0.41s"><tspan fill="#8b949e">--------------</tspan></text>
+<text class="ln" x="26" y="102" style="animation-delay:0.52s"><tspan fill="#39d353" font-weight="700">Name:</tspan><tspan x="120">Matheus de Andrade Oliveira</tspan></text>
+<text class="ln" x="26" y="122" style="animation-delay:0.63s"><tspan fill="#39d353" font-weight="700">Role:</tspan><tspan x="120">Full-Stack Developer</tspan></text>
+<text class="ln" x="26" y="142" style="animation-delay:0.74s"><tspan fill="#39d353" font-weight="700">Now:</tspan><tspan x="120">Japeri City Hall · public sector</tspan></text>
+<text class="ln" x="26" y="162" style="animation-delay:0.85s"><tspan fill="#39d353" font-weight="700">Location:</tspan><tspan x="120">Nova Iguaçu, RJ – Brazil</tspan></text>
+<text class="ln" x="26" y="182" style="animation-delay:0.96s"><tspan fill="#39d353" font-weight="700">Education:</tspan><tspan x="120">Computer Science · Estácio</tspan></text>
+<text class="ln" x="26" y="202" style="animation-delay:1.07s"><tspan fill="#39d353" font-weight="700">Uptime:</tspan><tspan x="120">4 years, 3 months on GitHub</tspan></text>
+<text class="ln" x="26" y="222" style="animation-delay:1.18s"><tspan fill="#39d353" font-weight="700">Web:</tspan><tspan x="120">TypeScript · React · Node.js</tspan></text>
+<text class="ln" x="26" y="242" style="animation-delay:1.29s"><tspan fill="#39d353" font-weight="700">Mobile:</tspan><tspan x="120">React Native · Flutter · Kotlin</tspan></text>
+<text class="ln" x="26" y="262" style="animation-delay:1.40s"><tspan fill="#39d353" font-weight="700">Data:</tspan><tspan x="120">PostgreSQL · MySQL · MongoDB</tspan></text>
+<text class="ln" x="26" y="282" style="animation-delay:1.51s"><tspan fill="#39d353" font-weight="700">Cloud:</tspan><tspan x="120">AWS · Azure · Docker</tspan></text>
+<text class="ln" x="26" y="302" style="animation-delay:1.62s"><tspan fill="#39d353" font-weight="700">Projects:</tspan><tspan x="120">SERI Smart Parking · Bike Parking</tspan></text>
+<g class="ln" style="animation-delay:1.73s"><rect x="26" y="318" width="24" height="14" fill="#484f58"/><rect x="50" y="318" width="24" height="14" fill="#ff7b72"/><rect x="74" y="318" width="24" height="14" fill="#3fb950"/><rect x="98" y="318" width="24" height="14" fill="#d29922"/><rect x="122" y="318" width="24" height="14" fill="#58a6ff"/><rect x="146" y="318" width="24" height="14" fill="#bc8cff"/><rect x="170" y="318" width="24" height="14" fill="#39c5cf"/><rect x="194" y="318" width="24" height="14" fill="#b1bac4"/></g>
+<text class="ln" x="26" y="358" style="animation-delay:1.88s"><tspan fill="#39d353">matheus@github</tspan> <tspan fill="#58a6ff">~</tspan> $ <tspan class="cur" fill="#c9d1d9" style="animation-delay:2.33s">█</tspan></text>
+</g>
+<rect x=".5" y=".5" width="489" height="399" rx="14" fill="none" stroke="#58a6ff" stroke-opacity=".5"/>
+</g>
+</g>
+</svg>
