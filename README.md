@@ -5,7 +5,7 @@
 <h2>Who I am</h2>
 
 <p align="center">
-<img src="./matheus-ascii.svg" width="43.02%" alt="ASCII art monogram M" />
+<img src="./matheus-ascii.svg" width="43.02%" alt="ASCII art portrait of Matheus Oliveira" />
 <img src="./info-card.svg" width="55.48%" alt="Matheus de Andrade Oliveira, Full-Stack Developer at Japeri City Hall (public sector), Nova Iguaçu, RJ, Brazil. Computer Science at Estácio. Web: TypeScript, React, Node.js. Mobile: React Native, Flutter, Kotlin. Data: PostgreSQL, MySQL, MongoDB. Cloud: AWS, Azure, Docker" />
 </p>
 

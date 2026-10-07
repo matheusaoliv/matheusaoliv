@@ -17,14 +17,18 @@ RAMP = " .`:-=+*cs#%@"  # claro -> escuro; o espaço some no fundo
 
 WIDTH, HEIGHT = 370, 400
 PAD_X, PAD_Y = 22, 18
-COLS = 56
-ROW_H = 11
-
 ART_W = WIDTH - 2 * PAD_X
-CELL_W = ART_W / COLS
-ROWS = int((HEIGHT - TITLE_H - 2 * PAD_Y) // ROW_H)
-ART_H = ROWS * ROW_H
-TOP = TITLE_H + (HEIGHT - TITLE_H - ART_H) / 2
+
+# Colunas e altura da linha: o retrato precisa de mais resolução que o monograma.
+GRID_MONOGRAM = (56, 11)
+GRID_PHOTO = (100, 6.5)
+
+
+def grid(cols, row_h):
+    rows = int((HEIGHT - TITLE_H - 2 * PAD_Y) // row_h)
+    art_h = rows * row_h
+    return {"cols": cols, "rows": rows, "row_h": row_h, "cell_w": ART_W / cols,
+            "art_h": art_h, "top": TITLE_H + (HEIGHT - TITLE_H - art_h) / 2}
 
 FONTS = ["DejaVuSans-Bold.ttf", "arialbd.ttf", "Arial Bold.ttf", "LiberationSans-Bold.ttf"]
 
@@ -38,10 +42,10 @@ def load_font(size):
     return ImageFont.load_default(size)
 
 
-def monogram(text="M"):
+def monogram(g, text="M"):
     """Letras grossas com degradê e sombra em 3D, sobre fundo branco."""
     scale = 4
-    w, h = int(ART_W * scale), int(ART_H * scale)
+    w, h = int(ART_W * scale), int(g["art_h"] * scale)
     depth = int(h * 0.05)
     # Maior fonte que cabe na caixa contando a extrusão.
     probe = load_font(100)
@@ -74,58 +78,61 @@ def monogram(text="M"):
     return img
 
 
-def from_photo(path):
+def from_photo(g, path):
     img = ImageOps.grayscale(Image.open(path))
-    target = (int(ART_W * 4), int(ART_H * 4))
+    target = (int(ART_W * 4), int(g["art_h"] * 4))
     return ImageOps.pad(img, target, color=255, centering=(0.5, 1.0))
 
 
-def to_ascii(img):
-    # Cada célula do terminal é ~2x mais alta que larga: reduz direto para COLS x ROWS.
-    small = ImageOps.autocontrast(img.resize((COLS, ROWS), Image.Resampling.BOX), cutoff=1)
+def to_ascii(g, img):
+    # Cada célula do terminal é ~2x mais alta que larga: reduz direto para cols x rows.
+    cols, rows = g["cols"], g["rows"]
+    small = ImageOps.autocontrast(img.resize((cols, rows), Image.Resampling.BOX), cutoff=1)
     px = small.load()
     return [
-        "".join(RAMP[min(len(RAMP) - 1, (255 - px[x, y]) * len(RAMP) // 256)] for x in range(COLS))
-        for y in range(ROWS)
+        "".join(RAMP[min(len(RAMP) - 1, (255 - px[x, y]) * len(RAMP) // 256)] for x in range(cols))
+        for y in range(rows)
     ]
 
 
 def main():
-    img = from_photo(sys.argv[1]) if len(sys.argv) > 1 else monogram()
-    lines = to_ascii(img)
+    photo = len(sys.argv) > 1
+    g = grid(*(GRID_PHOTO if photo else GRID_MONOGRAM))
+    cols, row_h, cell_w, top, art_h = g["cols"], g["row_h"], g["cell_w"], g["top"], g["art_h"]
+    lines = to_ascii(g, from_photo(g, sys.argv[1]) if photo else monogram(g))
 
     # Cada linha fica atrás de um clip que alarga um caractere por vez (SMIL),
     # com o cursor verde andando junto. Toca uma vez e congela.
     dur = 0.6
-    steps = ";".join(f"{k * CELL_W:.1f}" for k in range(COLS + 1)) + f";{ART_W + 2}"
-    xs = ";".join(f"{PAD_X + k * CELL_W:.1f}" for k in range(COLS + 2))
+    steps = ";".join(f"{k * cell_w:.1f}" for k in range(cols + 1)) + f";{ART_W + 2}"
+    xs = ";".join(f"{PAD_X + k * cell_w:.1f}" for k in range(cols + 2))
     rows, clips = [], []
     for i, line in enumerate(lines):
         if not line.strip():
             continue
-        y = TOP + i * ROW_H
-        begin = f'begin="{0.2 + i * 0.075:.3f}s" dur="{dur}s"'
+        y = top + i * row_h
+        begin = f'begin="{0.2 + i * 2.6 / len(lines):.3f}s" dur="{dur}s"'
         clips.append(
-            f'<clipPath id="r{i}"><rect x="{PAD_X - 1}" y="{y:.2f}" width="0" height="{ROW_H}">'
+            f'<clipPath id="r{i}"><rect x="{PAD_X - 1}" y="{y:.2f}" width="0" height="{row_h}">'
             f'<animate attributeName="width" values="{steps}" calcMode="discrete" {begin} fill="freeze"/>'
             f"</rect></clipPath>"
         )
         rows.append(
-            f'<text clip-path="url(#r{i})" x="{PAD_X}" y="{y + ROW_H - 2.5:.2f}" textLength="{ART_W}" '
+            f'<text clip-path="url(#r{i})" x="{PAD_X}" y="{y + row_h * 0.77:.2f}" textLength="{ART_W}" '
             f'lengthAdjust="spacing" xml:space="preserve">{esc(line)}</text>'
-            f'<rect x="{PAD_X}" y="{y + 1:.2f}" width="{CELL_W:.2f}" height="{ROW_H - 2}" fill="{ACCENT}" opacity="0">'
+            f'<rect x="{PAD_X}" y="{y + 1:.2f}" width="{cell_w:.2f}" height="{row_h - 2}" fill="{ACCENT}" opacity="0">'
             f'<animate attributeName="x" values="{xs}" calcMode="discrete" {begin} fill="freeze"/>'
             f'<set attributeName="opacity" to="1" {begin}/></rect>'
         )
 
-    css = f".art {{ font-size: {CELL_W / 0.6:.2f}px; white-space: pre; }}"
+    css = f".art {{ font-size: {cell_w / 0.6:.2f}px; white-space: pre; }}"
     defs = (
         "".join(clips)
-        + f'<linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="0" y1="{TOP:.2f}" x2="0" y2="{TOP + ART_H:.2f}">'
+        + f'<linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="0" y1="{top:.2f}" x2="0" y2="{top + art_h:.2f}">'
         f'<stop offset="0" stop-color="{TEXT}"/><stop offset="1" stop-color="#7d8590"/></linearGradient>'
     )
     body = f'<g class="art" fill="url(#ink)">{"".join(rows)}</g>'
-    label = "ASCII art monogram M" if len(sys.argv) == 1 else "ASCII art portrait"
+    label = "ASCII art portrait of Matheus Oliveira" if photo else "ASCII art monogram M"
     write("matheus-ascii.svg", window(WIDTH, HEIGHT, "matheus@github: ~", label, body, css, defs))
 
 
