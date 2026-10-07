@@ -1,9 +1,10 @@
-"""Baixa o calendário de contribuições público e salva data/contributions.json.
+"""Baixa o calendário de contribuições e salva data/contributions.json.
 
-Fonte principal: o HTML público em github.com/users/<usuario>/contributions
-(não precisa de token). Se o GitHub mudar a marcação e nada for encontrado,
-tenta a API GraphQL com o GITHUB_TOKEN do Actions. Se as duas falharem, sai
-com erro para o workflow não sobrescrever o gráfico bom com dados vazios.
+1. Com o secret PROFILE_TOKEN: API GraphQL como o próprio dono do token, que
+   inclui as contribuições em repositórios privados.
+2. Sem ele: o HTML público em github.com/users/<usuario>/contributions.
+3. Se o GitHub mudar a marcação: GraphQL com o GITHUB_TOKEN do Actions.
+Se tudo falhar, sai com erro para o workflow não sobrescrever o gráfico bom.
 """
 import json
 import os
@@ -45,20 +46,25 @@ def from_html():
     return days
 
 
-def from_graphql():
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        raise RuntimeError("sem GITHUB_TOKEN para o fallback GraphQL")
-    query = """query($login: String!) { user(login: $login) { contributionsCollection {
-      contributionCalendar { weeks { contributionDays { date contributionCount } } } } } }"""
+def from_graphql(token, viewer=False):
+    """`viewer=True` consulta o dono do token (vê as contribuições privadas)."""
+    calendar = "contributionsCollection { contributionCalendar { weeks { contributionDays { date contributionCount } } } }"
+    if viewer:
+        query, variables, key = f"{{ viewer {{ {calendar} }} }}", {}, "viewer"
+    else:
+        query = f"query($login: String!) {{ user(login: $login) {{ {calendar} }} }}"
+        variables, key = {"login": USER}, "user"
     resp = requests.post(
         "https://api.github.com/graphql",
-        json={"query": query, "variables": {"login": USER}},
+        json={"query": query, "variables": variables},
         headers={"Authorization": f"bearer {token}"},
         timeout=30,
     )
     resp.raise_for_status()
-    weeks = resp.json()["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+    body = resp.json()
+    if "errors" in body:
+        raise RuntimeError(body["errors"])
+    weeks = body["data"][key]["contributionsCollection"]["contributionCalendar"]["weeks"]
     return [
         {"date": d["date"], "count": d["contributionCount"], "level": 0}
         for w in weeks for d in w["contributionDays"]
@@ -82,15 +88,20 @@ def streaks(days):
 
 
 def main():
-    try:
-        days = from_html()
-        source = "html"
-    except Exception as err:  # noqa: BLE001 - qualquer falha cai no fallback
-        print(f"aviso: HTML falhou ({err}); tentando GraphQL", file=sys.stderr)
-        days = []
-    if not days:
-        days = from_graphql()
-        source = "graphql"
+    days, source = [], None
+    attempts = []
+    if os.environ.get("PROFILE_TOKEN"):
+        attempts.append(("token", lambda: from_graphql(os.environ["PROFILE_TOKEN"], viewer=True)))
+    attempts.append(("html", from_html))
+    if os.environ.get("GITHUB_TOKEN"):
+        attempts.append(("graphql", lambda: from_graphql(os.environ["GITHUB_TOKEN"])))
+    for name, fetch in attempts:
+        try:
+            days, source = fetch(), name
+        except Exception as err:  # noqa: BLE001 - qualquer falha tenta a próxima fonte
+            print(f"aviso: fonte {name} falhou ({err})", file=sys.stderr)
+        if days:
+            break
     if not days:
         sys.exit("erro: nenhum dia de contribuição encontrado")
 

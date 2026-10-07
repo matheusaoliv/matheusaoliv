@@ -28,13 +28,18 @@ jobs:
           cache: pip
           cache-dependency-path: scripts/requirements.txt
       - run: pip install -r scripts/requirements.txt
-      - name: Baixa contribuições
-        run: python scripts/fetch_contributions.py
+      - name: Baixa contribuições e contagem de repositórios
+        run: |
+          python scripts/fetch_contributions.py
+          python scripts/fetch_profile_stats.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Token fine-grained só leitura do dono do perfil (opcional): inclui privados.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
       - name: Renderiza SVGs
         run: |
           python scripts/render_heatmap_svg.py
+          python scripts/render_stats_svg.py
           python scripts/make_info_card.py
           python scripts/make_hero_svg.py
           python scripts/make_projects_svg.py
@@ -42,7 +47,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/contributions.json contrib-heatmap.svg info-card.svg hero.svg projects
+          git add data contrib-heatmap.svg stats.svg info-card.svg hero.svg projects
           if git diff --cached --quiet; then
             echo "Nada mudou."
           else

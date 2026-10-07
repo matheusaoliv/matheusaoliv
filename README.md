@@ -12,7 +12,7 @@
 <h2>Proof at a glance</h2>
 
 <p align="center">
-<img src="https://www.gitskins.com/api/section/stats?username=matheusaoliv&theme=github-dark&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F107213643%3Fv%3D4&v=recruiter-stats-1&mode=dark" width="100%" alt="matheusaoliv GitHub proof metrics: stars, contributions, repositories and followers" />
+<img src="./stats.svg" width="100%" alt="Profile Signal: 27 repositories (10 public, 17 private), contributions in the past year, 3 live demos and 4 years on GitHub" />
 </p>
 
 <h2>Selected work</h2>
@@ -55,11 +55,12 @@
 <a href="https://github.com/matheusaoliv/Portfolio---Matheus-Oliveira"><b>Portfolio</b></a>
 </p>
 
-<p align="center"><sub>Live cards by <a href="https://www.gitskins.com/readme-generator">GitSkins</a> · hero, neofetch, project cards and heatmap are custom animated SVGs refreshed daily by GitHub Actions</sub></p>
+<p align="center"><sub>Language card by <a href="https://www.gitskins.com/readme-generator">GitSkins</a> · everything else is custom animated SVG, refreshed daily by GitHub Actions</sub></p>
 
 <!--
 Como funciona a parte animada:
-- hero.svg, matheus-ascii.svg, info-card.svg e contrib-heatmap.svg têm a animação dentro do próprio SVG.
+- hero.svg, stats.svg, projects/*.svg, matheus-ascii.svg, info-card.svg e contrib-heatmap.svg têm a animação dentro do próprio SVG.
+- stats.svg conta repositórios privados com o secret PROFILE_TOKEN (token fine-grained só leitura); sem ele mantém data/profile.json.
 - scripts/make_hero_svg.py, scripts/make_info_card.py e scripts/make_projects_svg.py: edite os textos no topo de cada um.
 - scripts/make_ascii_svg.py: gera a arte ASCII (aceita foto, veja scripts/prep_photo.py).
 - .github/workflows/update-profile-art.yml: todo dia baixa as contribuições e regenera os SVGs.
