@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./hero.svg" width="100%" alt="Matheus Oliveira — full-stack developer (web + mobile, civic tech). Open to new opportunities. Stack: TypeScript, React, Node.js, React Native, Flutter, PostgreSQL" />
+<a href="https://dev-matheus-oliveira-mauve.vercel.app/"><img src="./hero.svg" width="100%" alt="Matheus Oliveira — full-stack developer (web + mobile, civic tech). Open to new opportunities. Stack: TypeScript, React, Node.js, React Native, Flutter, PostgreSQL" /></a>
 </p>
 
 <h2>Who I am</h2>
@@ -52,7 +52,7 @@
 
 <p>
 <a href="https://github.com/matheusaoliv"><b>GitHub</b></a> ·
-<a href="https://github.com/matheusaoliv/Portfolio---Matheus-Oliveira"><b>Portfolio</b></a>
+<a href="https://dev-matheus-oliveira-mauve.vercel.app/"><b>Portfolio</b></a>
 </p>
 
 <p align="center"><sub>Language card by <a href="https://www.gitskins.com/readme-generator">GitSkins</a> · everything else is custom animated SVG, refreshed daily by GitHub Actions</sub></p>
