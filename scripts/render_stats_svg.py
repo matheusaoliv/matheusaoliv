@@ -10,6 +10,10 @@ from datetime import date
 from make_projects_svg import PROJECTS
 from svgkit import ACCENT, BLUE, BRIGHT, MUTED, PURPLE, ROOT, SANS, card, esc, write
 
+# "Contribution settings → Private contributions" está ativado no perfil, então
+# até a página pública já soma as contribuições privadas.
+PRIVATE_CONTRIBUTIONS_ON_PROFILE = True
+
 WIDTH, HEIGHT = 860, 282
 MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 TILE_Y, TILE_H, GAP = 104, 134, 14
@@ -58,7 +62,7 @@ def main():
             f'<rect class="up" style="animation-delay:{0.6 + i * 0.04:.2f}s" x="{18 + i * (bw + 3):.1f}" '
             f'y="{104 - h:.1f}" width="{bw:.1f}" height="{h:.1f}" rx="1.5" fill="{fill}" fill-opacity="{opacity:.2f}"/>'
         )
-    scope = "incl. private" if contrib.get("source") == "token" else "public only"
+    scope = "incl. private" if contrib.get("source") == "token" or PRIVATE_CONTRIBUTIONS_ON_PROFILE else "public only"
 
     # Demos no ar entre os projetos em destaque.
     live = sum(1 for p in PROJECTS if p["live"])
