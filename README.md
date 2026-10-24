@@ -1,12 +1,12 @@
 <p align="center">
-<a href="https://dev-matheus-oliveira-mauve.vercel.app/"><img src="./hero.svg" width="100%" alt="Matheus Oliveira — full-stack developer (web + mobile, civic tech). Open to new opportunities. Stack: TypeScript, React, Node.js, React Native, Flutter, PostgreSQL" /></a>
+<a href="https://dev-matheus-oliveira-mauve.vercel.app/"><img src="./hero.svg" width="100%" alt="Matheus Oliveira, junior front-end developer (web interfaces, civic tech). Open to new opportunities. Stack: HTML and CSS, JavaScript, TypeScript, React, Vite, PWA" /></a>
 </p>
 
 <h2>Who I am</h2>
 
 <p align="center">
 <img src="./matheus-portrait.svg" width="43.02%" alt="ASCII art portrait of Matheus Oliveira" />
-<img src="./info-card.svg" width="55.48%" alt="Matheus de Andrade Oliveira, Full-Stack Developer at Japeri City Hall (public sector), Nova Iguaçu, RJ, Brazil. Computer Science at Estácio. Web: TypeScript, React, Node.js. Mobile: React Native, Flutter, Kotlin. Data: PostgreSQL, MySQL, MongoDB. Cloud: AWS, Azure, Docker" />
+<img src="./info-card.svg" width="55.48%" alt="Matheus de Andrade Oliveira, Junior Front-end Developer at Japeri City Hall (public sector), Nova Iguaçu, RJ, Brazil. Computer Science at Estácio. Web: HTML, CSS, JavaScript, TypeScript. Front-end: React, Vite, PWA. Mobile: Capacitor (Android). Tools: Git, GitHub, Vercel" />
 </p>
 
 <h2>Proof at a glance</h2>

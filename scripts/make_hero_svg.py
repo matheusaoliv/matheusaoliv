@@ -8,17 +8,17 @@ from svgkit import ACCENT, BLUE, BRIGHT, MUTED, PURPLE, SANS, TEXT, card, esc, w
 
 NAME = "Matheus Oliveira"
 KICKER = "RECRUITER SIGNAL BRIEF · @matheusaoliv"
-ROLE = "full-stack developer · web + mobile · civic tech"
+ROLE = "junior front-end developer · web interfaces · civic tech"
 TAGLINE = "Practical, high-impact products, with a focus on UX and solid engineering."
 STATUS = "Open to new opportunities"
 LOCATION = "Nova Iguaçu, RJ · Brazil"
 CHIPS = [
+    ("HTML & CSS", "#e34f26"),
+    ("JavaScript", "#f7df1e"),
     ("TypeScript", "#3178c6"),
     ("React", "#61dafb"),
-    ("Node.js", "#5fa04e"),
-    ("React Native", PURPLE),
-    ("Flutter", "#54c5f8"),
-    ("PostgreSQL", "#5b8fd6"),
+    ("Vite", PURPLE),
+    ("PWA", "#3fb950"),
 ]
 MONOGRAM = "MO"
 

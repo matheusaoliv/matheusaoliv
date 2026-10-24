@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="534" height="444" viewBox="0 0 534 444" role="img" aria-labelledby="t">
-<title id="t">neofetch-style card: Name: Matheus de Andrade Oliveira; Role: Full-Stack Developer; Now: Japeri City Hall · public sector; Location: Nova Iguaçu, RJ – Brazil; Education: Computer Science · Estácio; Uptime: 4 years, 3 months on GitHub; Web: TypeScript · React · Node.js; Mobile: React Native · Flutter · Kotlin; Data: PostgreSQL · MySQL · MongoDB; Cloud: AWS · Azure · Docker; Projects: SERI Smart Parking · Bike Parking</title>
+<title id="t">neofetch-style card: Name: Matheus de Andrade Oliveira; Role: Junior Front-end Developer; Now: Japeri City Hall · public sector; Location: Nova Iguaçu, RJ – Brazil; Education: Computer Science · Estácio; Uptime: 4 years, 4 months on GitHub; Web: HTML · CSS · JavaScript · TypeScript; Front-end: React · Vite · PWA; Mobile: Capacitor (Android); Tools: Git · GitHub · Vercel; Projects: SERI Smart Parking · Bike Parking</title>
 <style>
 svg { font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
 
@@ -51,15 +51,15 @@ svg { font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, 'Liberation 
 <text class="ln" x="26" y="62" style="animation-delay:0.30s"><tspan fill="#39d353" font-weight="700">matheus</tspan>@<tspan fill="#39d353" font-weight="700">github</tspan></text>
 <text class="ln" x="26" y="82" style="animation-delay:0.41s"><tspan fill="#8b949e">--------------</tspan></text>
 <text class="ln" x="26" y="102" style="animation-delay:0.52s"><tspan fill="#39d353" font-weight="700">Name:</tspan><tspan x="120">Matheus de Andrade Oliveira</tspan></text>
-<text class="ln" x="26" y="122" style="animation-delay:0.63s"><tspan fill="#39d353" font-weight="700">Role:</tspan><tspan x="120">Full-Stack Developer</tspan></text>
+<text class="ln" x="26" y="122" style="animation-delay:0.63s"><tspan fill="#39d353" font-weight="700">Role:</tspan><tspan x="120">Junior Front-end Developer</tspan></text>
 <text class="ln" x="26" y="142" style="animation-delay:0.74s"><tspan fill="#39d353" font-weight="700">Now:</tspan><tspan x="120">Japeri City Hall · public sector</tspan></text>
 <text class="ln" x="26" y="162" style="animation-delay:0.85s"><tspan fill="#39d353" font-weight="700">Location:</tspan><tspan x="120">Nova Iguaçu, RJ – Brazil</tspan></text>
 <text class="ln" x="26" y="182" style="animation-delay:0.96s"><tspan fill="#39d353" font-weight="700">Education:</tspan><tspan x="120">Computer Science · Estácio</tspan></text>
-<text class="ln" x="26" y="202" style="animation-delay:1.07s"><tspan fill="#39d353" font-weight="700">Uptime:</tspan><tspan x="120">4 years, 3 months on GitHub</tspan></text>
-<text class="ln" x="26" y="222" style="animation-delay:1.18s"><tspan fill="#39d353" font-weight="700">Web:</tspan><tspan x="120">TypeScript · React · Node.js</tspan></text>
-<text class="ln" x="26" y="242" style="animation-delay:1.29s"><tspan fill="#39d353" font-weight="700">Mobile:</tspan><tspan x="120">React Native · Flutter · Kotlin</tspan></text>
-<text class="ln" x="26" y="262" style="animation-delay:1.40s"><tspan fill="#39d353" font-weight="700">Data:</tspan><tspan x="120">PostgreSQL · MySQL · MongoDB</tspan></text>
-<text class="ln" x="26" y="282" style="animation-delay:1.51s"><tspan fill="#39d353" font-weight="700">Cloud:</tspan><tspan x="120">AWS · Azure · Docker</tspan></text>
+<text class="ln" x="26" y="202" style="animation-delay:1.07s"><tspan fill="#39d353" font-weight="700">Uptime:</tspan><tspan x="120">4 years, 4 months on GitHub</tspan></text>
+<text class="ln" x="26" y="222" style="animation-delay:1.18s"><tspan fill="#39d353" font-weight="700">Web:</tspan><tspan x="120">HTML · CSS · JavaScript · TypeScript</tspan></text>
+<text class="ln" x="26" y="242" style="animation-delay:1.29s"><tspan fill="#39d353" font-weight="700">Front-end:</tspan><tspan x="120">React · Vite · PWA</tspan></text>
+<text class="ln" x="26" y="262" style="animation-delay:1.40s"><tspan fill="#39d353" font-weight="700">Mobile:</tspan><tspan x="120">Capacitor (Android)</tspan></text>
+<text class="ln" x="26" y="282" style="animation-delay:1.51s"><tspan fill="#39d353" font-weight="700">Tools:</tspan><tspan x="120">Git · GitHub · Vercel</tspan></text>
 <text class="ln" x="26" y="302" style="animation-delay:1.62s"><tspan fill="#39d353" font-weight="700">Projects:</tspan><tspan x="120">SERI Smart Parking · Bike Parking</tspan></text>
 <g class="ln" style="animation-delay:1.73s"><rect x="26" y="318" width="24" height="14" fill="#484f58"/><rect x="50" y="318" width="24" height="14" fill="#ff7b72"/><rect x="74" y="318" width="24" height="14" fill="#3fb950"/><rect x="98" y="318" width="24" height="14" fill="#d29922"/><rect x="122" y="318" width="24" height="14" fill="#58a6ff"/><rect x="146" y="318" width="24" height="14" fill="#bc8cff"/><rect x="170" y="318" width="24" height="14" fill="#39c5cf"/><rect x="194" y="318" width="24" height="14" fill="#b1bac4"/></g>
 <text class="ln" x="26" y="358" style="animation-delay:1.88s"><tspan fill="#39d353">matheus@github</tspan> <tspan fill="#58a6ff">~</tspan> $ <tspan class="cur" fill="#c9d1d9" style="animation-delay:2.33s">█</tspan></text>

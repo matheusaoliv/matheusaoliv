@@ -14,15 +14,15 @@ GITHUB_SINCE = date(2022, 6, 9)
 
 INFO = [
     ("Name", "Matheus de Andrade Oliveira"),
-    ("Role", "Full-Stack Developer"),
+    ("Role", "Junior Front-end Developer"),
     ("Now", "Japeri City Hall · public sector"),
     ("Location", "Nova Iguaçu, RJ – Brazil"),
     ("Education", "Computer Science · Estácio"),
     ("Uptime", None),  # calculado a partir de GITHUB_SINCE
-    ("Web", "TypeScript · React · Node.js"),
-    ("Mobile", "React Native · Flutter · Kotlin"),
-    ("Data", "PostgreSQL · MySQL · MongoDB"),
-    ("Cloud", "AWS · Azure · Docker"),
+    ("Web", "HTML · CSS · JavaScript · TypeScript"),
+    ("Front-end", "React · Vite · PWA"),
+    ("Mobile", "Capacitor (Android)"),
+    ("Tools", "Git · GitHub · Vercel"),
     ("Projects", "SERI Smart Parking · Bike Parking"),
 ]
 
